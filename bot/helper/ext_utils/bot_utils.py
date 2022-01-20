@@ -142,16 +142,16 @@ def get_readable_message():
                     msg += f"\n<b>Downloaded:</b> {get_readable_file_size(download.processed_bytes())} of {download.size()}"
                 msg += f"\n<b>Speed:</b> {download.speed()} | <b>ETA:</b> {download.eta()}"
                 try:
-                    msg += f"\n<b>Engine:</b> Aria2\n📶: {download.aria_download().connections}"
+                    msg += f"\n<b>Engine:</b> Aria2\n Seeders: {download.aria_download().num_seeders}"
                 except:
                     pass
                 try:
-                    msg += f" | 🌱: {download.aria_download().num_seeders}"
+                    msg += f" | Leechers: {download.aria_download().connections}"
                 except:
                     pass    
                 try:
-                    msg += f"\n<b>Engine:</b> Qbit\n<b>🌍:</b> {download.torrent_info().num_leechs}" \
-                           f" | <b>🌱:</b> {download.torrent_info().num_seeds}"
+                    msg += f"\n<b>Engine:</b> qBittorrent\n<b>Seeders :</b> {download.torrent_info().num_seeds}" \
+                           f" | <b>Leechers :</b> {download.torrent_info().num_leechs}"
                 except:
                     pass
                 msg += f"\n<code>/{BotCommands.CancelMirror} {download.gid()}</code>"
