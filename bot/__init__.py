@@ -452,7 +452,7 @@ try:
         osremove("accounts.zip")
 except KeyError:
     pass
-  try:
+try:
     TIMEZONE = getConfig('TIMEZONE')
     if len(TIMEZONE) == 0:
         TIMEZONE = None
