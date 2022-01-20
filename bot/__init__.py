@@ -452,6 +452,18 @@ try:
         osremove("accounts.zip")
 except KeyError:
     pass
+  try:
+    TIMEZONE = getConfig('TIMEZONE')
+    if len(TIMEZONE) == 0:
+        TIMEZONE = None
+except KeyError:
+    TIMEZONE = 'Asia/Kuala_Lumpur'
+try:
+    RESTARTED_GROUP_ID = getConfig('RESTARTED_GROUP_ID')
+    if len(RESTARTED_GROUP_ID) == 0:
+        RESTARTED_GROUP_ID = None
+except KeyError:
+    RESTARTED_GROUP_ID = '-1001437939580'
 try:
     MULTI_SEARCH_URL = getConfig('MULTI_SEARCH_URL')
     if len(MULTI_SEARCH_URL) == 0:
